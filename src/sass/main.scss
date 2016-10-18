@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Pontano Sans', sans-serif;
+}
+
+.container {
+  width: 530px;
+  border: 2px solid lightgrey;
+  border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
+
+  #title {
+    border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 75px;
+    color: white;
+    background: rgb(45, 136, 205);
+    padding: 20px 20px;
+    font-size: 28px;
+    font-weight: lighter;
+  }
+  .fields {
+    width: 400px;
+    height: 80px;
+    border: 1px solid blue;
+  }
+}
