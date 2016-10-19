@@ -3,11 +3,14 @@
   font-family: 'Pontano Sans', sans-serif;
 }
 
+$border: 2px solid lightgrey;
+
 .container {
-  width: 530px;
-  border: 2px solid lightgrey;
-  border-top-right-radius: 5px;
-  border-top-right-radius: 5px;
+  width: 540px;
+  height: 664px;
+  border: $border;
+  border-radius: 5px;
+  position: relative;
 
   #title {
     border-top-right-radius: 5px;
@@ -19,9 +22,52 @@
     font-size: 28px;
     font-weight: lighter;
   }
+
   .fields {
-    width: 400px;
-    height: 80px;
-    border: 1px solid blue;
+    width: 485px;
+    height: 35px;
+    margin: 10px 20px;
+    position: relative;
+
+    .fa {
+      color: rgb(141, 155, 168);
+      position: absolute;
+      top: 6px;
+      left: 10px;
+    }
   }
+
+  #user-first-name {
+    margin-top: 40px;
+  }
+
+  #submit {
+    position: absolute;
+    bottom: 0px;
+    padding: 20px 20px;
+    width: 100%;
+    background: rgb(197, 222, 241);
+
+    button {
+      background: rgb(45, 136, 205);
+      color: white;
+      font-size: 12px;
+      padding: 5px 14px;
+      border: 1px solid rgb(14, 123, 199);
+    }
+  }
+}
+
+input {
+  width: 485px;
+}
+
+input,
+::-webkit-input-placeholder {
+  font-family: 'Pontano Sans', sans-serif;
+  font-size: 12px;
+  color: rgb(141, 155, 168);
+  line-width: 100%;
+  line-height: 25px;
+  padding-left: 15px;
 }
