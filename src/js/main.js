@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-//variable holds HTML div class="container"
+//variable holds div class="container"
 var container = $(".container");
 
 //function to show error when attempting to request data
@@ -18,23 +18,26 @@ function makeField (data) {
     </div>`;
 };
 
+//creates all the fields that make up the form
 function displayFields (data) {
   //array holds all the form fields
-  var totalFields = [];
+  // var totalFields = [];
   //loop through each field obj in the Form array
   for (var i = 0; i < data.length; i++) {
     var fieldHTML = makeField(data[i]);
-    totalFields.push(fieldHTML);
+    // totalFields.push(fieldHTML);
+    $(".container").append(fieldHTML);
+
   }
-  console.log(totalFields);
-  return $(".container").html(totalFields);
 };
 
 function getFields() {
-  var field = $.ajax({
+  $.ajax({
     url: `http://json-data.herokuapp.com/forms/`,
     success: displayFields,
     error: handleError
   });
-  console.log(field);
 };
+
+var inputbar = document.getElementsByClassName("container");
+inputbar.innerHTML = getFields();
