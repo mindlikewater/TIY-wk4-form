@@ -1,9 +1,9 @@
+$border: 2px solid lightgrey;
+
 * {
   box-sizing: border-box;
   font-family: 'Pontano Sans', sans-serif;
 }
-
-$border: 2px solid lightgrey;
 
 .container {
   width: 540px;
@@ -43,6 +43,14 @@ $border: 2px solid lightgrey;
 
   #user-language select {
     width: 100%;
+    font-family: 'Pontano Sans', sans-serif;
+    font-size: 12px;
+    border: 0;
+    height: 30px;
+  }
+
+  #user-mobile {
+    margin-top: 70px;
   }
 
   #submit {
@@ -64,14 +72,18 @@ $border: 2px solid lightgrey;
 
 input {
   width: 485px;
-  text-indent: 30px;
 }
 
-input,
 ::-webkit-input-placeholder {
   font-family: 'Pontano Sans', sans-serif;
   font-size: 12px;
   color: rgb(141, 155, 168);
   line-width: 100%;
   line-height: 25px;
+  text-indent: 30px;
+}
+
+textarea {
+  border: 1px solid lightgrey;
+  resize: none;
 }
