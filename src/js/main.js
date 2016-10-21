@@ -28,6 +28,15 @@ function makeLanguageMenu(data) {
     </div>`;
 };
 
+//makes HTML for the Comments box
+function makeCommentBox (data) {
+  return `
+    <div class="fields" id="${data.id}">
+      <textarea name="${data.type}" placeholder="${data.label}" rows="4" cols="58"></textarea>
+      <i class="fa ${data.icon}"</i>
+    </div>`;
+};
+
 //makes the HTML for a field in the form
 function makeField (data) {
   return `
@@ -36,20 +45,6 @@ function makeField (data) {
       <i class="fa ${data.icon}"</i>
     </div>`;
 };
-
-/*
-function getLanguages (data) {
-  for (var i=0; i < data[4].options.length; i++) {
-    var fieldHTML += `
-      <div class="fields" id="${data[4].id}">
-        <select name="select">
-          <option value="">Select Language</option>
-          <option value="${data[4].value}">${data[4].label}</option>
-        </select>
-      </div>`;
-  }
-  return fieldHTML;
-};  */
 
 //makes the HTML for the submit button at the bottom of the form
 function submitButton() {
