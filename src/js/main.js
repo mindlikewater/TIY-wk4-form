@@ -9,6 +9,25 @@ function handleError (req) {
   console.log(req);
 };
 
+//generates HTML for the different language options
+function optionsList (data) {
+  var options = data.options.map(function(properties) {
+    return `<option value="${properties.value}">${properties.label}</option>`
+  }).join();
+  return options;
+};
+
+//makes HTML for the Select Languages menu
+function makeLanguageMenu(data) {
+  return `
+    <div class="fields" id="${data.id}">
+      <select name="select">
+        <option value="">Select Language...</option>
+        ${optionsList(data)};
+      </select>
+    </div>`;
+};
+
 //makes the HTML for a field in the form
 function makeField (data) {
   return `
@@ -18,36 +37,19 @@ function makeField (data) {
     </div>`;
 };
 
-/*function extracts the Language options from the data
-function extractLanguages (data) {
-  if (data.id === "user-language") {
-    var label = data.options.label;
-    var value = data.options.value;
-
-    return {
-      label: label,
-      value: value
-    };
-  };
-}; */
-
-//fuction makes the <Select> language menu
-function makeLanguageMenu (data) {
-  if (data.id === "user-language") {
-    var langList = data.map(function (x) {
-      return x.options;
-    });
+/*
+function getLanguages (data) {
+  for (var i=0; i < data[4].options.length; i++) {
+    var fieldHTML += `
+      <div class="fields" id="${data[4].id}">
+        <select name="select">
+          <option value="">Select Language</option>
+          <option value="${data[4].value}">${data[4].label}</option>
+        </select>
+      </div>`;
   }
-  langList.forEach(function (x) {
-    return `
-    <div class="fields" id="${x.id}">
-      <select name="select">
-        <option value="${x.value}">${x.label}</option>
-      </select>
-      <i class="fa ${x.icon}"</i>
-    </div>`;
-  });
-};
+  return fieldHTML;
+};  */
 
 //makes the HTML for the submit button at the bottom of the form
 function submitButton() {
@@ -55,24 +57,28 @@ function submitButton() {
     <div id="submit">
       <button name="button">Submit Form</button>
     </div>`;
-
   //adds the button to the bottom of the container
   $(".container").append(buttonHTML);
 };
 
-//creates all the fields that make up the form
+//function creates all the fields that make up the form
 function allFields (data) {
-  //loop through each field obj in the Form array
-  for (var i = 0; i < data.length; i++) {
-    if (data.id === "user-language") {
-      makeLanguageMenu(data);
+  var fieldHTML = "";
+  //loop through each field obj in the form array
+  data.forEach(function(field) {
+    if (field.id === "user-language") {
+      fieldHTML = makeLanguageMenu(field);
+      $(".container").append(fieldHTML);
+    }
+    else if (field.id === "user-comment") {
+      fieldHTML = makeCommentBox(field);
+      $(".container").append(fieldHTML);
     }
     else {
-      var fieldHTML = makeField(data[i]);
+      fieldHTML = makeField(field);
+      $(".container").append(fieldHTML);
     }
-    //add all the HTML fields to the div, container
-    $(".container").append(fieldHTML);
-  }
+  });
   //call function that creates HTML for Submit button
   submitButton();
 };
