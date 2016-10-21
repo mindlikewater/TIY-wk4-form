@@ -41,6 +41,10 @@ $border: 2px solid lightgrey;
     margin-top: 40px;
   }
 
+  #user-language select {
+    width: 100%;
+  }
+
   #submit {
     position: absolute;
     bottom: 0px;
@@ -60,6 +64,7 @@ $border: 2px solid lightgrey;
 
 input {
   width: 485px;
+  text-indent: 30px;
 }
 
 input,
@@ -69,5 +74,4 @@ input,
   color: rgb(141, 155, 168);
   line-width: 100%;
   line-height: 25px;
-  padding-left: 15px;
 }
